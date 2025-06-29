@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TechNova | Products</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">TechNova</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="products.html">Products</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="cart.html"><i class="fas fa-shopping-cart"></i></a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Page Header -->
+<header class="bg-primary text-white text-center py-5">
+  <div class="container">
+    <h1 class="display-5">Browse All Products</h1>
+    <p class="lead">Laptops, Accessories, Headphones & More</p>
+  </div>
+</header>
+
+<!-- Product Filter Buttons -->
+<section class="py-4 text-center">
+  <div class="container">
+    <button class="btn btn-outline-primary m-1 filter-btn" data-filter="all">All</button>
+    <button class="btn btn-outline-primary m-1 filter-btn" data-filter="laptop">Laptops</button>
+    <button class="btn btn-outline-primary m-1 filter-btn" data-filter="headphone">Headphones</button>
+    <button class="btn btn-outline-primary m-1 filter-btn" data-filter="accessory">Accessories</button>
+  </div>
+</section>
+
+<!-- Product Grid -->
+<section class="pb-5">
+  <div class="container">
+    <div class="row g-4" id="product-list">
+
+      <!-- Product 1 -->
+      <div class="col-md-4 product-card" data-category="laptop">
+        <div class="card h-100">
+          <img src="images/Laptop.jpg" class="card-img-top" alt="Laptop 1">
+          <div class="card-body">
+            <h5 class="card-title">Ultrabook Pro</h5>
+            <p class="card-text">$899.00</p>
+            <a href="product-details.html" class="btn btn-outline-primary">View</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="col-md-4 product-card" data-category="headphone">
+        <div class="card h-100">
+          <img src="images/f1.jpg" class="card-img-top" alt="Headphone 1">
+          <div class="card-body">
+            <h5 class="card-title">Noise-Canceling Headphones</h5>
+            <p class="card-text">$149.99</p>
+            <a href="product-details.html" class="btn btn-outline-primary">View</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="col-md-4 product-card" data-category="accessory">
+        <div class="card h-100">
+          <img src="images/mouse.jpg" class="card-img-top" alt="Accessory 1">
+          <div class="card-body">
+            <h5 class="card-title">Wireless Mouse</h5>
+            <p class="card-text">$29.99</p>
+            <a href="product-details.html" class="btn btn-outline-primary">View</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more products as needed -->
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center py-4">
+  <div class="container">
+    <p>&copy; 2025 TechNova. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Filter script
+  const buttons = document.querySelectorAll('.filter-btn');
+  const cards = document.querySelectorAll('.product-card');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      cards.forEach(card => {
+        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
